@@ -2,6 +2,25 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
+
+// SCSS structure includes having a directory file (i.e. _base-dir.scss) 
+// in each folder that includes all of the individual stylesheets within that folder. 
+// Those directory files, then roll up into the ‘main’ styles.scss folder which helps keep
+//  things clean and organized, and easy to read. 
+//  I like to set up my directory files to look something like this:
+
+@import './0-base/base_dir';
+@import './1-pages//pages_dir';
+@import './2-modules//modules-dir';
+@import './3-helpers//helpers-dir';
+@import './4-vendor//vendor-dir';
+@import'./5-print/print-dir.scss';
+
+// Remember that the order of imports matters! 
+// If you’re using constants / variables that your other stylesheets reference,
+//  you’ll need to make sure that directory import is at the top being imported 
+//  before the files that are using those variables.
+
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,7 +39,7 @@ $portfolio-using-standalone-components-warn: mat.define-palette(mat.$red-palette
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$portfolio-using-standalone-components-theme: mat.define-light-theme((
+$portfolio-light-theme: mat.define-light-theme((
   color: (
     primary: $portfolio-using-standalone-components-primary,
     accent: $portfolio-using-standalone-components-accent,
@@ -28,12 +47,24 @@ $portfolio-using-standalone-components-theme: mat.define-light-theme((
   )
 ));
 
+$portfolio-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $portfolio-using-standalone-components-primary,
+    accent: $portfolio-using-standalone-components-accent,
+    warn: $portfolio-using-standalone-components-warn,
+  )
+));
+
+
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($portfolio-using-standalone-components-theme);
+@include mat.all-component-themes($portfolio-light-theme);
+
+.darkmode{
+  @include mat.all-component-themes($portfolio-dark-theme);
+}
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,12 @@
+// In this we can put General Overrides and base font size so that we can use
+// rems consistently
+
+html, body { 
+    height: 100%; 
+}
+// Universal Selector
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
