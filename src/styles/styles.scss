@@ -10,11 +10,11 @@
 //  I like to set up my directory files to look something like this:
 
 @import './0-base/base_dir';
-@import './1-pages//pages_dir';
-@import './2-modules//modules-dir';
-@import './3-helpers//helpers-dir';
-@import './4-vendor//vendor-dir';
-@import'./5-print/print-dir.scss';
+// @import './1-pages/pages_dir';
+// @import './2-modules/modules-dir';
+@import './3-helpers/helpers-dir';
+// @import './4-vendor/vendor-dir';
+// @import'./5-print/print-dir.scss';
 
 // Remember that the order of imports matters! 
 // If you’re using constants / variables that your other stylesheets reference,
@@ -62,9 +62,22 @@ $portfolio-dark-theme: mat.define-dark-theme((
 // that you are using.
 @include mat.all-component-themes($portfolio-light-theme);
 
+
 .darkmode{
   @include mat.all-component-themes($portfolio-dark-theme);
 }
 
 /* You can add global styles to this file, and also import other style files */
 
+
+//CHeck how can't we assign scss variables to css variables!
+:root{
+  --primary-color: rgb(0, 137, 123);
+  --focus-color: rgba(0, 137, 123, 0.2);
+  --text-color:black;
+}
+:root .darkmode{
+  --primary-color: rgb(34, 252, 208);
+  --focus-color: rgba(34, 252, 208,0.2);
+  --text-color:white;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SkillService } from '../skill.service';
 
 @Component({
   selector: 'app-skills',
@@ -10,9 +11,10 @@ import { CommonModule } from '@angular/common';
 })
 export class SkillsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private skillService:SkillService) { }
 
   ngOnInit(): void {
+    this.skillService.getSkills();
   }
 
 }

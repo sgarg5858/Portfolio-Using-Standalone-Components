@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ExperienceService } from '../experience.service';
 
 @Component({
   selector: 'app-experiences',
@@ -10,9 +11,10 @@ import { CommonModule } from '@angular/common';
 })
 export class ExperiencesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public experienceService:ExperienceService) { }
 
   ngOnInit(): void {
+    this.experienceService.getEmployers();
   }
 
 }

@@ -1,0 +1,40 @@
+[
+    {
+        "name":"Publicis Sapient",
+        "startDate":"June 2021",
+        "title":"Frontend Engineer",
+        "end Date":"",
+        "present":true,
+        "projects":[
+            {
+                "name":"Enterprise Products",
+                "description":"A platform where customers can place orders,nominations,and can keep track for the same",
+                "skills":["Angular","Nx","Module Federation","TypeScript","Rxjs","Ngrx","Jest","JavaScript","SCSS","CSS3","Html5"],
+                "roles":["Designed and Implemented the highly scalable architecture for MVP Angular Application using Nx and Module Federation.","Implemented Dynamic Forms to generate templates with styling, and Integrated Power BI Reports","Developed the document upload functionality for document management portal, where users can upload documents and update documents."]
+
+
+            }
+        ]
+    },
+    {
+        "name":"Infosys",
+        "startDate":"July 2019",
+        "endDate":"June 2021",
+        "title":"Frontend Engineer",
+        "present":false,
+        "projects":[
+            {
+                "name":"Meridian",
+                "description":"A platform where people can meet, collaborate and attend events.",
+                "skills":["Angular","TypeScript","Rxjs","Jest","JavaScript","SCSS","CSS3","Html5"],
+                "roles":["Developed the business logic for creating meetings, scheduling meetings, and the recurring feature for the same.","Implemented the best practices of Angular for better performance like onPush strategy for Change Detection , NgZone, LazyLoading, Rxjs and Router Guards.","Refactored the frontend and implemented the logic for making the application multi-tenant."]
+            },
+            {
+                "name":"GNO",
+                "description":"A platform where people can create and take surveys",
+                "skills":["Angular","TypeScript","Rxjs","Jest","JavaScript","SCSS","CSS3","Html5"],
+                "roles":["Developed the business logic for listing all the surveys with the option to sort and search surveys with autocomplete and improved the performance by using Event Bubbling and Delegation.", "Refactored the frontend and implemented the logic for making the application multi-tenant."]
+            }
+        ]
+    }
+]

@@ -3,7 +3,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/routes/initial_routes';
-
+import {HttpClientModule} from '@angular/common/http'
 import { environment } from './environments/environment';
 
 if (environment.production) {
@@ -15,6 +15,7 @@ if (environment.production) {
 
 bootstrapApplication(AppComponent,{
   providers:[
-    importProvidersFrom(RouterModule.forRoot([...routes]))
+    importProvidersFrom(RouterModule.forRoot([...routes])),
+    importProvidersFrom(HttpClientModule)
   ]
 })

@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "../home/home/home.component";
+import { SkillService } from "../skills/skill.service";
 
 export const routes: Routes = [
     {
@@ -8,7 +9,8 @@ export const routes: Routes = [
     },
     {
         path:'skills',
-        loadComponent:()=>import('../skills/skills/skills.component').then(c=>c.SkillsComponent)
+        loadComponent:()=>import('../skills/skills/skills.component').then(c=>c.SkillsComponent),
+        providers:[SkillService]
     },
     {
         path:'experience',
