@@ -1,1 +1,72 @@
-<p>experience works!</p>
+<mat-card class="employer">
+    <mat-card-title> {{employer.title}}</mat-card-title>
+    <mat-card-subtitle>	 
+    <div>{{employer.name}}</div>    
+    <div> {{employer.startDate}} - {{employer.present ? 'Present' : employer.endDate}}</div>    
+    </mat-card-subtitle>
+
+    <mat-card-subtitle>	 </mat-card-subtitle>
+    <mat-card-content>
+        <ng-container *ngFor="let project of employer.projects">
+            <div class="project">
+                <h3 class="projectname">{{project.name}}</h3>
+                <h4 class="text">{{project.description}}</h4>
+                <div>
+                    <h4>Roles and Responsibilities:</h4>
+                    <ul>
+                        <li class="text" *ngFor="let role of project.roles">
+                            {{role}}
+                        </li>
+                    </ul>
+                </div>
+               <div class="techStack">
+                    <h4>Tech Stack:</h4>
+                    <div class="skills">
+                        <div class="skill" *ngFor="let skill of project.skills">
+                            {{skill}}
+                        </div>
+                    </div> 
+               </div>   
+            </div>
+
+        </ng-container>
+
+        <!-- <mat-accordion>
+            <mat-expansion-panel>
+
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Projects
+                      </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <ng-container *ngFor="let project of employer.projects">
+
+                    <div class="project">
+                        <h3>{{project.name}}</h3>
+                        <div>
+                            <h4>Roles and Responsibilities:</h4>
+                            <ul>
+                                <li *ngFor="let role of project.roles">
+                                    {{role}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <h4>Tech Stack:</h4>
+                            <div class="skills">
+                                <div class="skill" *ngFor="let skill of project.skills">
+                                    {{skill}}
+                                </div>
+                        </div>
+                        </div>
+                        
+                    </div>
+
+                </ng-container>
+
+            </mat-expansion-panel>
+        </mat-accordion> -->
+
+    </mat-card-content>
+</mat-card>
