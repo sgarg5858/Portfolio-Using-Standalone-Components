@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { ExperienceService } from "../experiences/experience.service";
 import { HomeComponent } from "../home/home/home.component";
 import { SkillService } from "../skills/skill.service";
 
@@ -14,7 +15,8 @@ export const routes: Routes = [
     },
     {
         path:'experience',
-        loadComponent:()=>import('../experiences/experiences/experiences.component').then(c=>c.ExperiencesComponent)
+        loadComponent:()=>import('../experiences/experiences/experiences.component').then(c=>c.ExperiencesComponent),
+        providers:[ExperienceService]
     },
     {
         path:'**',

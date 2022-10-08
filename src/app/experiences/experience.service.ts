@@ -25,9 +25,7 @@ export interface EmployerState{
   error:unknown|null;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ExperienceService {
 
   // openSnackBar(message:string)
