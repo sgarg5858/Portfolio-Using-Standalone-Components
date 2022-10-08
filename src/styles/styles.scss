@@ -74,10 +74,11 @@ $portfolio-dark-theme: mat.define-dark-theme((
 :root{
   --primary-color: rgb(0, 137, 123);
   --focus-color: rgba(0, 137, 123, 0.2);
-  --text-color:black;
+  --text-color:white;
+
 }
 :root .darkmode{
   --primary-color: rgb(34, 252, 208);
   --focus-color: rgba(34, 252, 208,0.2);
-  --text-color:white;
+  --text-color:black;
 }

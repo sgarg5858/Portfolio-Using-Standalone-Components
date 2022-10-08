@@ -1,1 +1,31 @@
-<p>skills works!</p>
+<ng-container *ngIf="(skillService.loading$ | async);else showSkills">
+    <h2>Loading Skills.....</h2>
+</ng-container>
+
+<ng-template #showSkills>
+
+    <ng-container *ngIf="(skillService.skills$|  async) as skills;else showError">
+
+        <ng-container *ngIf="skills.length > 0; else noSkills">
+
+           <div class="skills">
+                <app-skill *ngFor="let skill of skills" 
+                [skill]="skill" 
+                [class]="skill.name"
+                >
+                </app-skill>
+           </div>
+
+        </ng-container>
+
+        <ng-template #noSkills>
+            <h2>No Skills :(</h2>
+        </ng-template>
+
+    </ng-container>
+
+    <ng-template #showError>
+        <h2>Couldn't load skills :(</h2>
+    </ng-template>
+
+</ng-template>

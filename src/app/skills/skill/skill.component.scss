@@ -1,0 +1,70 @@
+// 1300-1500px
+.skill{
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 5px solid var(--highlight-color);
+    transition: transform 1s;
+    background-color: var(--primary-color);
+    color:var(--text-color) !important;
+    font-size: 20px;
+    font-weight: 700 !important;
+    color: rgb(22, 23, 41);
+
+    h3{
+        margin: 0px;
+        font-size: 20px;
+
+    }
+    // color:goldenrod;
+    
+}
+
+// Apply this style only in dark mode
+.skill:hover{
+    // color: goldenrod;
+    // border-left: 5px solid goldenrod;
+    // background-color: #6c757d;;
+    transform: scale(0.95) ;
+}
+
+@media screen and (min-width:1100px) and (max-width:1350px) {
+
+    .skill{
+        width: 250px;
+        height: 80px;    
+    }
+}
+@media screen and (min-width:800px) and (max-width:1100px) {
+
+    .skill{
+        width: 190px;
+        height: 80px;    
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:800px) {
+
+    .skill{
+        width: 150px;
+        height: 80px;    
+    }
+}
+
+@media screen and (min-width:400px) and (max-width:500px) {
+
+    .skill{
+        width: 180px;
+        height: 80px;    
+    }
+}
+
+@media screen and (min-width:300px) and (max-width:400px) {
+
+    .skill{
+        width: 150px;
+        height: 80px;    
+    }
+}
