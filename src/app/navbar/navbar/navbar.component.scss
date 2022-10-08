@@ -1,0 +1,135 @@
+@mixin flex-center($direction,$main-axis-direction,$cross-axis-direction) {
+    display:flex;
+    flex-direction: $direction;
+    justify-content: $main-axis-direction;
+    align-items: $cross-axis-direction;
+}
+
+header{
+    height: 80px;
+    border-bottom: 1px solid var(--border-color-for-navigation);
+}
+nav{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.logo{
+    height: 100%;
+    width:15%;
+    padding-left: 3%;
+    
+    @include flex-center(row,flex-start,center);
+    a{
+        display: block;
+        height: 100%;
+        @include flex-center(row, center, center)
+    }
+    img{
+        transition: transform 0.5s;
+        &:hover{
+            transform: scale(0.95);
+        }
+    }
+}
+
+.links{
+    margin-left: 10%;
+    width: 60%;
+    height: 100%;
+    @include flex-center(row, center, center);
+    mat-nav-list{
+        width: 100%;
+        @include flex-center(row, center, center);
+
+        a{
+            @include flex-center(row, center, center);
+            transition: transform 0.5s;
+            &:hover{
+                transform: scale(0.95);
+            }
+        }
+    }
+}
+
+.theme{
+    width: 15%;
+    padding-right: 3%;
+    @include flex-center(row,flex-end,center);
+    button{
+        @include flex-center(row,flex-end,center);
+        
+        mat-icon{
+            transition: transform 0.5s;
+            &:hover{
+                transform: scale(0.95);
+        }
+    }
+    }
+}
+
+.dark{
+    color: goldenrod;
+}
+.light{
+    color: dodgerblue;
+}
+
+
+.menu{
+    width: 0%;
+    @include flex-center(row,flex-end,center);
+    visibility: hidden;
+}
+
+@media screen and (max-width:500px) {
+    .menu{
+        width: 50%;
+        padding-right: 3%;
+        @include flex-center(row,flex-end,center);
+        visibility: visible;
+    }
+    .theme{
+        visibility: hidden;
+        width: 0%;
+    }
+    .links{
+        width: 0%;
+        visibility: hidden;
+    }
+    .logo{
+        width: 50%;
+    }
+    
+}
+
+mat-sidenav-container{
+    height: 100vh;
+}
+mat-sidenav{
+    width: 50%;
+    z-index: 100;
+}
+.mat-list-item-content{
+    width: 100%;
+    text-align: center;
+}
+mat-action-list,mat-nav-list{
+    button,a{
+        @include flex-center(row, center, center)
+    }
+}
+
+a[mat-list-item].activeLink{
+    // background-color: #6c757d;
+    border-radius: 5px;
+    background-color: var(--focus-color) !important;
+}
+
+mat-action-list button[mat-list-item],mat-nav-list a[mat-list-item],button[mat-icon-button],mat-icon{
+    color: var(--primary-color);
+    
+}
+.logoImg{
+    background: var(--primary-color);
+}

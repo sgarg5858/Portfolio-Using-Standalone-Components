@@ -1,6 +1,3 @@
-<div class="mat-app-background darkmode" style="min-height: 100vh;">
-    <a class="my" [routerLink]="'home'">Home</a>
-    <a  class="my" [routerLink]="'skills'">Skills</a>
-    <a  class="my" [routerLink]="'experience'">Experience</a>
-    <router-outlet></router-outlet>
+<div class="container mat-app-background" [ngClass]="{ 'darkmode': themeService.isDarkMode$ | async }">
+    <app-navbar></app-navbar>
 </div>

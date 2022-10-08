@@ -1,1 +1,114 @@
-<p>navbar works!</p>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="over" position="end">
+      
+        <div class="vertical" cdkTrapFocus >
+
+            <mat-action-list>
+
+                <button 
+                    mat-list-item 
+                    (click)="sidenav.toggle()"
+                    >
+                        <mat-icon>close</mat-icon>
+                    </button>
+
+                <button mat-list-item (click)="themeService.setTheme(false)" *ngIf="(themeService.isDarkMode$ | async);else showThisWhenLightMode">
+                    <mat-icon >sunny_wb</mat-icon>
+                  </button>
+        
+                    <ng-template #showThisWhenLightMode>
+        
+                     <button mat-list-item (click)="themeService.setTheme(true)">
+                        <mat-icon>brightness_2</mat-icon>
+                     </button>
+                    </ng-template>
+
+             </mat-action-list>
+
+            <mat-nav-list>
+                <a mat-list-item  [routerLink]="'home'" [routerLinkActive]="'activeLink'"> Home </a>
+                <a mat-list-item  [routerLink]="'skills'" [routerLinkActive]="'activeLink'"> Skills </a>
+                <a mat-list-item  [routerLink]="'experience'" [routerLinkActive]="'activeLink'"> Experience </a>
+                <!-- <a mat-list-item  [routerLink]="'contact'" [routerLinkActive]="'activeLink'"> Contact </a> -->
+             </mat-nav-list>
+        </div>
+
+                    
+            
+  
+
+
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+
+        <header 
+        >
+            <nav>
+                <div class="logo">
+                    <a [routerLink]="''">
+                        <img 
+                        class="logoImg"
+                        height="50" 
+                        width="50" 
+                        src="../../assets/logo.svg" 
+                        alt="Logo" 
+                        />
+                    </a>
+                </div>
+                <div class="links">
+                    <mat-nav-list>
+                        <a mat-list-item [routerLink]="'home'" [routerLinkActive]="'activeLink'"> Home </a>
+                        <a mat-list-item  [routerLink]="'skills'" [routerLinkActive]="'activeLink'"> Skills </a>
+                        <a mat-list-item  [routerLink]="'experience'" [routerLinkActive]="'activeLink'"> Experience </a>
+                        <!-- <a mat-list-item [routerLink]="'contact'" [routerLinkActive]="'activeLink'"> Contact </a> -->
+        
+                     </mat-nav-list>
+                </div>
+        
+                <div class="theme">
+                    
+                  <ng-container  *ngIf="(themeService.isDarkMode$ | async);else showThisWhenLightMode">
+                    <button mat-icon-button
+                    (click)="themeService.setTheme(false)">
+                    <mat-icon >sunny_wb</mat-icon>
+                   </button>
+                  </ng-container>
+        
+                    <ng-template #showThisWhenLightMode>
+        
+                     <button mat-icon-button  
+                     (click)="themeService.setTheme(true)"
+                     >
+                        <mat-icon >brightness_2</mat-icon>
+                     </button>
+        
+                    </ng-template>
+                </div>
+
+                <div class="menu">
+                    <button 
+                    mat-icon-button 
+                    (click)="sidenav.toggle()"
+                    >
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <router-outlet></router-outlet>
+
+
+     
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+
+      <!-- Check this -->
+    <!-- USE MAT DIVIDER With That we dont need to maintain color or border ! -->
+     <!-- Try to use CSS GRID TO DISPLAY SKILLS -->
+     <!-- For skills i wanna show that effect from neom , using grid template areas -->
+     <!-- Proper way to access assets folder in angular project -->
+     <!-- Add retry logic using http interceptor  -->
+     <!-- in json files store data in object with result property and transform result from interceptor -->
