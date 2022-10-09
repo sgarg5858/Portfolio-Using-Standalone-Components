@@ -73,12 +73,14 @@ $portfolio-dark-theme: mat.define-dark-theme((
 //CHeck how can't we assign scss variables to css variables!
 :root{
   --primary-color: rgb(0, 137, 123);
-  --focus-color: rgba(0, 137, 123, 0.4);
+  --focus-color: rgba(0, 137, 123, 0.3);
+  --icon-color:rgba(0, 137, 123, 0.6);
   --text-color:white;
 
 }
 :root .darkmode{
   --primary-color: rgb(34, 252, 208);
-  --focus-color: rgba(34, 252, 208,0.4);
+  --focus-color: rgba(34, 252, 208,0.3);
+  --icon-color:  rgba(34, 252, 208,0.6);
   --text-color:black;
 }

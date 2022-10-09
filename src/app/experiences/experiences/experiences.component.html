@@ -8,9 +8,10 @@
 
         <ng-container *ngIf="employers.length > 0;else noExperience">
 
-            <h1>I've helped build products for,</h1>
             
            <div class="employers">
+            <h1>I've helped build products for,</h1>
+
             <app-experience *ngFor="let employer of employers" [employer]="employer">
             </app-experience>
            </div>

@@ -11,12 +11,14 @@ export const routes: Routes = [
     {
         path:'skills',
         loadComponent:()=>import('../skills/skills/skills.component').then(c=>c.SkillsComponent),
-        providers:[SkillService]
+        providers:[SkillService],
+        title:"Sanjay Garg-Skills"
     },
     {
         path:'experience',
         loadComponent:()=>import('../experiences/experiences/experiences.component').then(c=>c.ExperiencesComponent),
-        providers:[ExperienceService]
+        providers:[ExperienceService],
+        title:"Sanjay Garg-Experience"
     },
     {
         path:'**',
