@@ -7,6 +7,9 @@
     <ng-container *ngIf="(experienceService.employers$ | async) as employers">
 
         <ng-container *ngIf="employers.length > 0;else noExperience">
+
+            <h1>I've helped build products for,</h1>
+            
            <div class="employers">
             <app-experience *ngFor="let employer of employers" [employer]="employer">
             </app-experience>

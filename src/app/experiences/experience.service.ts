@@ -16,7 +16,7 @@ export interface Employer{
   startDate:string;
   endDate:string;
   present:boolean;
-  projects:Project[];
+  work:string;
 }
 
 export interface EmployerState{

@@ -1,5 +1,14 @@
+h1{
+    font-size: 28px;
+    font-weight: 400;
+    display: block;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 5vh;
+}
+
 .skills{
-    margin-top: 10vh;
     display: grid;
     grid-template-rows: repeat(3,1fr);
     grid-template-columns: repeat(4,1fr);
@@ -9,7 +18,7 @@
     justify-items: center;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 70vh;
     
 
 }
