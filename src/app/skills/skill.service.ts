@@ -17,7 +17,9 @@ export interface SkillState{
 @Injectable()
 export class SkillService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient) {
+    console.log("Skill Service")
+   }
 
   private skillsBehaviorSubject = new BehaviorSubject<SkillState>({loading:null,skills:null,error:null});
 
@@ -48,8 +50,18 @@ export class SkillService {
   //     panelClass:'mat-primary'
   //   })
   // }
+
+  checkIfSkillsAlreadyLoaded()
+  {
+    const skills=this.skillsBehaviorSubject.value.skills;
+    return skills && skills.length > 0 ? true : false;
+  }
   getSkills()
   {
+    if(this.checkIfSkillsAlreadyLoaded())
+    {
+      return;
+    }
     //Sets the loading indicator
     this.skillsBehaviorSubject.next({
       loading:true,

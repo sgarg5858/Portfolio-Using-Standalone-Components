@@ -60,7 +60,18 @@ export class ExperienceService {
     distinctUntilChanged()
     );
 
+  checkIfEmployersAlreadyLoaded()
+  {
+    const employers=this.employersBehaviorSubject.value.employers;
+    return employers && employers.length > 0 ? true : false;
+  }
+
   getEmployers(){
+
+    if(this.checkIfEmployersAlreadyLoaded())
+    {
+      return;
+    }
 
     console.log("Get Employers")
     //Set the loading state!
