@@ -5,13 +5,19 @@ h1{
     text-decoration: none;
     letter-spacing: 1px;
     text-align: center;
-    margin: 10vh;
+    margin: 5vh;
 }
 .container{
     min-height: calc(100vh - 80px);
     height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 20px;
 }
 .skills{
+    width: 90%;
     display: grid;
     grid-template-rows: repeat(3,1fr);
     grid-template-columns: repeat(4,1fr);
@@ -27,7 +33,6 @@ h1{
 }
 @media screen and (min-width:800px) and (max-width:1100px) {
     .skills{
-        margin-top: 5vh;
         display: grid;
         grid-template-rows: repeat(3,1fr);
         grid-template-columns: repeat(4,1fr);
@@ -39,15 +44,12 @@ h1{
         justify-content: center;
         align-items: center;
         min-height: 50vh;
-        margin-bottom: 10vh;
-
     
     }
 }
 
 @media screen and (min-width:650px) and (max-width:800px) {
     .skills{
-        margin-top: 5vh;
         display: grid;
         grid-template-rows: repeat(3,1fr);
         grid-template-columns: repeat(4,1fr);
@@ -58,8 +60,7 @@ h1{
         justify-items: center;
         justify-content: center;
         align-items: center;
-        min-height: 70vh;
-        margin-bottom: 10vh;
+        min-height: 50vh;
 
     
     }
@@ -67,7 +68,6 @@ h1{
 
 @media screen and (min-width:500px) and (max-width:650px) {
     .skills{
-        margin-top: 5vh;
         display: grid;
         grid-template-rows: repeat(4,1fr);
         grid-template-columns: repeat(3,1fr);
@@ -78,8 +78,7 @@ h1{
         justify-items: center;
         justify-content: center;
         align-items: center;
-        min-height: 70vh;
-        margin-bottom: 10vh;
+        min-height: 60vh;
 
     }
 }
@@ -87,7 +86,6 @@ h1{
 @media screen and (min-width:300px) and (max-width:500px) {
 
     .skills{
-        margin-top: 5vh;
         display: grid;
         grid-template-rows: repeat(6,1fr);
         grid-template-columns: repeat(2,1fr);
@@ -97,8 +95,7 @@ h1{
         justify-items: center;
         justify-content: center;
         align-items: center;
-        min-height: 70vh;
-        margin-bottom: 10vh;
+        min-height: 60vh;
 
     }
 }
