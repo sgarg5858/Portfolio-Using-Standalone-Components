@@ -18,5 +18,9 @@ export class ExperiencesComponent implements OnInit {
   ngOnInit(): void {
     this.experienceService.getEmployers();
   }
+  getAnimateClass(index:number)
+  {
+    return `experience-animate-${index}`
+  }
 
 }

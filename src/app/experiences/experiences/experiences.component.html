@@ -10,9 +10,12 @@
 
             
            <div class="employers">
-            <h1>I've helped build products for,</h1>
+            <h1 class="experience-heading-animate">I've helped build products for,</h1>
 
-            <app-experience *ngFor="let employer of employers" [employer]="employer">
+            <app-experience *ngFor="let employer of employers;let i = index" 
+            [employer]="employer"
+            [class]="getAnimateClass(i)"
+            >
             </app-experience>
            </div>
         </ng-container>

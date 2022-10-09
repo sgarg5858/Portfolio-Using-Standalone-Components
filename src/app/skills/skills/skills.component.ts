@@ -17,5 +17,8 @@ export class SkillsComponent implements OnInit {
   ngOnInit(): void {
     this.skillService.getSkills();
   }
-
+  getAnimationClass(index:number)
+  {
+    return `skill-animate-${index}`;
+  }
 }

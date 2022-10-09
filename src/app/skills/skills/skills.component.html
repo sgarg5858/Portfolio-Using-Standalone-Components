@@ -10,13 +10,12 @@
 
          <div class="container">
             
-            <h1 class="heading">Tech stack I've worked with,</h1>
+            <h1 class="heading skill-heading-animate">Tech stack I've worked with,</h1>
             <div class="skills">
  
- 
-                 <app-skill *ngFor="let skill of skills" 
-                 [skill]="skill" 
-                 [class]="skill.name"
+                 <app-skill *ngFor="let skill of skills;let i=index" 
+                 [skill]="skill"
+                 [class]="getAnimationClass(i)"
                  >
                  </app-skill>
             </div>
