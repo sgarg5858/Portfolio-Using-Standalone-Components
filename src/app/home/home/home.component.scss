@@ -16,19 +16,11 @@ mat-card{
     padding: 40px !important;
     height: auto;
     border-radius: 20px;
-    // animation: card-animate 2s ease-in-out ;
+    animation: card-animate 0.5s ease-in-out ;
 }
 
 @keyframes card-animate {
     0%{
-        opacity: 1;
-        transform: scale(0);
-    }
-    33%{
-        opacity:1;
-        transform: scale(1);
-    }
-    66%{
         opacity: 1;
         transform: scale(0.25);
     }
@@ -83,7 +75,7 @@ a svg{
         opacity: 0;
         transform: translateX(120px);
     }
-    33%{
+    66%{
             opacity: 0;
             transform: translateX(120px);
     }
@@ -103,7 +95,7 @@ a svg{
         opacity: 0;
         transform: translateX(-120px);
     }
-    33%{
+    66%{
         opacity: 0;
         transform: translateX(-120px);
 }
@@ -114,12 +106,16 @@ a svg{
 }
 
 .center{
-    animation: appear-animate 0.5s ease-in-out;
+    animation: appear-animate 1s ease-in-out;
   }
   
 
 @keyframes appear-animate {
     0%{
+        opacity: 0;
+        transform: translateY(200px);
+    }
+    50%{
         opacity: 0;
         transform: translateY(200px);
     }
