@@ -12,7 +12,9 @@ mat-card{
     align-items: center;
     justify-content: center;
     width: 400px;
-    min-height: 450px;
+    min-height: 300px;
+    padding: 40px !important;
+    height: auto;
     border-radius: 20px;
     // animation: card-animate 2s ease-in-out ;
 }
@@ -64,8 +66,10 @@ h2{
 }
 a svg{
     fill: var(--icon-color);
+    transition:transform 1s ;
     &:hover{
         fill:var(--primary-color);
+        transform: scale(0.9)
     }
 }
 
@@ -77,11 +81,11 @@ a svg{
 @keyframes left-animate {
     0%{
         opacity: 0;
-        transform: translateX(130px);
+        transform: translateX(120px);
     }
     33%{
             opacity: 0;
-            transform: translateX(130px);
+            transform: translateX(120px);
     }
     100%{
         opacity: 1;
@@ -97,11 +101,11 @@ a svg{
 @keyframes right-animate {
     0%{
         opacity: 0;
-        transform: translateX(-130px);
+        transform: translateX(-120px);
     }
     33%{
         opacity: 0;
-        transform: translateX(-130px);
+        transform: translateX(-120px);
 }
     100%{
         opacity: 1;
