@@ -12,9 +12,30 @@ mat-card{
     align-items: center;
     justify-content: center;
     width: 400px;
-    min-height: 500px;
-    border-radius: 5px;
+    min-height: 450px;
+    border-radius: 20px;
+    // animation: card-animate 2s ease-in-out ;
 }
+
+@keyframes card-animate {
+    0%{
+        opacity: 1;
+        transform: scale(0);
+    }
+    33%{
+        opacity:1;
+        transform: scale(1);
+    }
+    66%{
+        opacity: 1;
+        transform: scale(0.25);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 mat-card-content{
     display: flex;
     flex-direction: column;
@@ -47,10 +68,97 @@ a svg{
         fill:var(--primary-color);
     }
 }
+
+
+.move-left{
+  animation: left-animate 1.5s ease-in-out;
+}
+
+@keyframes left-animate {
+    0%{
+        opacity: 0;
+        transform: translateX(130px);
+    }
+    33%{
+            opacity: 0;
+            transform: translateX(130px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.move-right{
+    animation: right-animate 1.5s ease-in-out;
+  }
+  
+
+@keyframes right-animate {
+    0%{
+        opacity: 0;
+        transform: translateX(-130px);
+    }
+    33%{
+        opacity: 0;
+        transform: translateX(-130px);
+}
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.center{
+    animation: appear-animate 0.5s ease-in-out;
+  }
+  
+
+@keyframes appear-animate {
+    0%{
+        opacity: 0;
+        transform: translateY(200px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
 @media screen and (max-width:450px) {
     mat-card{
         width: 300px;
         min-height: 500px;
         border-radius: 5px;
+    }
+
+    @keyframes right-animate {
+        0%{
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        33%{
+            opacity: 0;
+            transform: translateX(-100px);
+    }
+        100%{
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+
+    @keyframes left-animate {
+        0%{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        33%{
+                opacity: 0;
+                transform: translateX(100px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0px);
+        }
     }
 }
