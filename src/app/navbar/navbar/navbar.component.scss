@@ -116,7 +116,9 @@ mat-sidenav{
 }
 mat-action-list,mat-nav-list{
     button,a{
-        @include flex-center(row, center, center)
+        @include flex-center(row, center, center);
+        width: 100%;
+        display: block;
     }
 }
 

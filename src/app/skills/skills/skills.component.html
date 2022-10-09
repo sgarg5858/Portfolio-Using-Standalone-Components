@@ -8,28 +8,30 @@
 
         <ng-container *ngIf="skills.length > 0; else noSkills">
 
+         <div class="container">
             <h1 class="heading">Tech stack I've worked with,</h1>
 
-           <div class="skills">
-
-
-                <app-skill *ngFor="let skill of skills" 
-                [skill]="skill" 
-                [class]="skill.name"
-                >
-                </app-skill>
-           </div>
+            <div class="skills">
+ 
+ 
+                 <app-skill *ngFor="let skill of skills" 
+                 [skill]="skill" 
+                 [class]="skill.name"
+                 >
+                 </app-skill>
+            </div>
+         </div>
 
         </ng-container>
 
         <ng-template #noSkills>
-            <h2>No Skills :(</h2>
+            <h1>No Skills :(</h1>
         </ng-template>
 
     </ng-container>
 
     <ng-template #showError>
-        <h2>Couldn't load skills :(</h2>
+        <h1>Couldn't load skills :(</h1>
     </ng-template>
 
 </ng-template>

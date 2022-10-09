@@ -5,9 +5,12 @@ h1{
     text-decoration: none;
     letter-spacing: 1px;
     text-align: center;
-    margin: 5vh;
+    margin: 10vh;
 }
-
+.container{
+    min-height: calc(100vh - 80px);
+    height: auto;
+}
 .skills{
     display: grid;
     grid-template-rows: repeat(3,1fr);
@@ -18,7 +21,7 @@ h1{
     justify-items: center;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 80px);
+    min-height: 300px;
     
 
 }
