@@ -15,7 +15,7 @@
  
                  <app-skill *ngFor="let skill of skills;let i=index" 
                  [skill]="skill"
-                 [class]="getAnimationClass(i)"
+                 [class]="i | cssClass : 'skill-animate-' "
                  >
                  </app-skill>
             </div>

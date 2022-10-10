@@ -12,6 +12,6 @@ import { ThemeService } from './theme/theme.service';
   imports:[RouterModule,CommonModule,NavbarComponent]
 })
 export class AppComponent{
-  title = 'portfolio-using-standalone-components';
+  title = 'Sanjay Garg';
   constructor(public themeService:ThemeService){}
 }

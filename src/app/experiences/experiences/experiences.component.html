@@ -14,7 +14,7 @@
 
             <app-experience *ngFor="let employer of employers;let i = index" 
             [employer]="employer"
-            [class]="getAnimateClass(i)"
+            [class]="i | cssClass : 'experience-animate-' "
             >
             </app-experience>
            </div>
