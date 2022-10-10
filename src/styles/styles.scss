@@ -9,10 +9,10 @@
 //  things clean and organized, and easy to read. 
 //  I like to set up my directory files to look something like this:
 
-@use './0-base/base_dir' as base;
+@use './base' as base;
 // @import './1-pages/pages_dir';
 // @import './2-modules/modules-dir';
-@use './3-helpers/helpers-dir' as helpers;
+@use './helpers' as helpers;
 // @import './4-vendor/vendor-dir';
 // @import'./5-print/print-dir.scss';
 
