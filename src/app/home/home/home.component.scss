@@ -107,11 +107,11 @@ a svg{
 @keyframes appear-animate {
     0%{
         opacity: 0;
-        transform: translateY(200px);
+        transform: translateY(var(--animation-distance));
     }
     50%{
         opacity: 0;
-        transform: translateY(200px);
+        transform: translateY(var(--animation-distance));
     }
     100%{
         opacity: 1;
