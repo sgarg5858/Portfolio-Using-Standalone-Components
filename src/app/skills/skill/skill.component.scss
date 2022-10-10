@@ -1,10 +1,9 @@
+@import './../../../styles/3-helpers/mixins';
 // 1300-1500px
 .skill{
+    @include flexbox(column,center,center,nowrap);
     width: 300px;
     height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transition: transform 1s;
     background-color: var(--primary-color);
     color:var(--text-color) !important;
