@@ -23,7 +23,7 @@ h1{
     }
 }
 .container{
-    @include mixflexbox(column,flex-start,center,nowrap);
+    @include mixins.flexbox(column,flex-start,center,nowrap);
     min-height: calc(100vh - 80px);
     height: auto;
     padding-bottom: 20px;

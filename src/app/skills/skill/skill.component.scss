@@ -1,7 +1,8 @@
-@import './../../../styles/3-helpers/mixins';
+@use './../../../styles/3-helpers/mixins' as mixins;
+
 // 1300-1500px
 .skill{
-    @include flexbox(column,center,center,nowrap);
+    @include mixins.flexbox(column,center,center,nowrap);
     width: 300px;
     height: 100px;
     transition: transform 1s;

@@ -1,16 +1,10 @@
+@use './../../../styles/3-helpers/mixins' as mixins;
 .container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: center;
+    @include mixins.flexbox(row,center,center,nowrap);
     height: calc(100vh - 80px);
 }
 mat-card{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-content: center;
+    @include mixins.flexbox(row,center,center,nowrap);
     width: 400px;
     min-height: 500px;
     padding: 40px !important;
