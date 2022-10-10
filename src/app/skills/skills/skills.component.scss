@@ -1,4 +1,4 @@
-@import './../../../styles/3-helpers/mixins';
+@use './../../../styles/3-helpers/mixins' as mixins;
 h1{
     font-size: 28px;
     font-weight: 400;
@@ -23,7 +23,7 @@ h1{
     }
 }
 .container{
-    @include flexbox(column,flex-start,center,nowrap);
+    @include mixflexbox(column,flex-start,center,nowrap);
     min-height: calc(100vh - 80px);
     height: auto;
     padding-bottom: 20px;
