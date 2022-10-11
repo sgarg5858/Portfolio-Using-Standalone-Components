@@ -18,7 +18,7 @@ export class SkillsResloverService implements Resolve<any> {
     let skills:Skill[]=this.skillService.areSkillsCached;
     if(skills.length > 0)
     {
-      return of(skills);
+      return of(skills).pipe(delay(500));
     }
     else
     {

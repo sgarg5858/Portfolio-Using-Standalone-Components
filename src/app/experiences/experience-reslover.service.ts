@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, delay, Observable, of } from 'rxjs';
 import { Employer, ExperienceService } from './experience.service';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class ExperienceResloverService implements Resolve<Employer[] |null> {
 
     if(employers.length > 0)
     {
-      return of(employers);
+      return of(employers).pipe(delay(500));
     }
     else
     {
