@@ -1,4 +1,4 @@
-<ng-container *ngIf="(experienceService.loading$ | async);else showEmployers">
+<!-- <ng-container *ngIf="(experienceService.loading$ | async);else showEmployers">
     <h1>Loading Experiences....</h1>
 </ng-container>
 
@@ -26,4 +26,14 @@
 
     </ng-container>
 
-</ng-template>
+</ng-template> -->
+
+<div class="employers">
+    <h1 class="experience-heading-animate">I've helped build products for,</h1>
+
+    <app-experience *ngFor="let employer of employers;let i = index" 
+    [employer]="employer"
+    [class]="i | cssClass : 'experience-animate-' "
+    >
+    </app-experience>
+   </div>

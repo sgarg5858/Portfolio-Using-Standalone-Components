@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ExperienceService } from '../experience.service';
+import { Employer, ExperienceService } from '../experience.service';
 import { ExperienceComponent } from '../experience/experience.component';
 import { MatCardModule } from '@angular/material/card';
 import { CssClassPipe } from 'src/app/shared/css-class.pipe';
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-experiences',
@@ -14,10 +15,11 @@ import { CssClassPipe } from 'src/app/shared/css-class.pipe';
 })
 export class ExperiencesComponent implements OnInit {
 
-  constructor(public experienceService:ExperienceService) { }
-
+  constructor(public activatedRoute:ActivatedRoute) { }
+  employers:Employer[]=[];
   ngOnInit(): void {
-    this.experienceService.getEmployers();
+    this.employers=this.activatedRoute.snapshot.data['employers'];
+    // this.experienceService.getEmployers();
   }
   // getAnimateClass(index:number)
   // {
