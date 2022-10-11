@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { catchError, delay, filter, map, merge, Observable, of, retry, skip, take, tap, throwError } from 'rxjs';
 import { Skill, SkillService } from './skill.service';
@@ -9,7 +10,8 @@ export class SkillsResloverService implements Resolve<any> {
 
   constructor
   (private skillService:SkillService,
-    private router:Router
+    private router:Router,
+    private _snackbar:MatSnackBar
     ) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Skill[] |null> {
@@ -24,6 +26,12 @@ export class SkillsResloverService implements Resolve<any> {
     {
       return this.skillService.getSkillsForResolver().pipe(
         catchError((err)=>{
+          this._snackbar.open("Couldn't load skills",undefined,{
+            horizontalPosition:'center',
+            verticalPosition:'bottom',
+            panelClass:'mySnackbar',
+            duration:3000
+          })
           this.router.navigate(['home']);
           return of(null);
         })

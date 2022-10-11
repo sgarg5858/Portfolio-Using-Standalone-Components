@@ -1,3 +1,5 @@
+import { importProvidersFrom } from "@angular/core";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { Routes } from "@angular/router";
 import { ExperienceResloverService } from "../experiences/experience-reslover.service";
 import { ExperienceService } from "../experiences/experience.service";
@@ -14,14 +16,22 @@ export const routes: Routes = [
     {
         path:'skills',
         loadComponent:()=>import('../skills/skills/skills.component').then(c=>c.SkillsComponent),
-        providers:[SkillService,SkillsResloverService],
+        providers:[
+            SkillService,
+            SkillsResloverService,
+            importProvidersFrom(MatSnackBarModule)
+        ],
         resolve:{skills:SkillsResloverService},
         title:"Sanjay Garg-Skills"
     },
     {
         path:'experience',
         loadComponent:()=>import('../experiences/experiences/experiences.component').then(c=>c.ExperiencesComponent),
-        providers:[ExperienceService,ExperienceResloverService],
+        providers:[
+            ExperienceService,
+            ExperienceResloverService,
+            importProvidersFrom(MatSnackBarModule)
+        ],
         resolve:{employers:ExperienceResloverService},
         title:"Sanjay Garg-Experience"
     },
