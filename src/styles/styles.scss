@@ -94,3 +94,7 @@ $portfolio-dark-theme: mat.define-dark-theme((
   // --icon-color: rgba(250, 235, 215,0.6);
   --text-color:black;
 }
+
+.mat-progress-bar-fill::after {
+  background-color: var(--primary-color) !important;
+}

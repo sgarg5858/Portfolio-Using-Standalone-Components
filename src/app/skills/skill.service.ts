@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, delay, distinctUntilChanged, map, mergeMap } from 'rxjs';
+import { BehaviorSubject, delay, distinctUntilChanged, map, mergeMap, retry } from 'rxjs';
 
 
 export interface Skill{
@@ -71,7 +71,10 @@ export class SkillService {
     // this.openSnackBar("Loading Skills ....");
     
 
-    this.httpClient.get<Skill[]>('../../assets/skills.json').pipe(delay(500))
+    this.httpClient.get<Skill[]>('../../assets/skills.json').pipe(
+      delay(1000),
+      retry({count:2,delay:500})
+      )
     .subscribe(
       {
         next : (skills)=>{
@@ -87,7 +90,7 @@ export class SkillService {
     
         },
         error : (error)=>{
-          this.skillsBehaviorSubject.next(
+          this.skillsBehaviorSubject.error(
             {
               loading:false,
               skills:null,

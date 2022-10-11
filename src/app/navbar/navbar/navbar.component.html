@@ -97,6 +97,11 @@
             </nav>
         </header>
 
+        <mat-progress-bar
+        class="myThemeColor" 
+        mode="indeterminate" 
+        *ngIf="routerEvents.loading$ | async"
+        ></mat-progress-bar>
         <router-outlet></router-outlet>
 
 

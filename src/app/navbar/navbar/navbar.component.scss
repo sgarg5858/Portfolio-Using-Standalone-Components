@@ -68,12 +68,12 @@ nav{
     }
 }
 
-.dark{
-    color: goldenrod;
-}
-.light{
-    color: dodgerblue;
-}
+// .dark{
+//     color: goldenrod;
+// }
+// .light{
+//     color: dodgerblue;
+// }
 
 
 .menu{
@@ -132,3 +132,7 @@ mat-action-list button[mat-list-item],mat-nav-list a[mat-list-item],button[mat-i
 .logoImg{
     background: var(--primary-color);
 }
+    
+.mat-progress-bar-fill::after {
+    background-color: var(--primary-color) !important;
+  }
