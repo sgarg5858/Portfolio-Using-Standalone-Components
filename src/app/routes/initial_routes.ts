@@ -2,6 +2,7 @@ import { Routes } from "@angular/router";
 import { ExperienceService } from "../experiences/experience.service";
 import { HomeComponent } from "../home/home/home.component";
 import { SkillService } from "../skills/skill.service";
+import { SkillsResloverService } from "../skills/skills-reslover.service";
 
 export const routes: Routes = [
     {
@@ -12,7 +13,8 @@ export const routes: Routes = [
     {
         path:'skills',
         loadComponent:()=>import('../skills/skills/skills.component').then(c=>c.SkillsComponent),
-        providers:[SkillService],
+        providers:[SkillService,SkillsResloverService],
+        resolve:{skills:SkillsResloverService},
         title:"Sanjay Garg-Skills"
     },
     {

@@ -59,7 +59,6 @@ export class SkillService {
       skills:null,
       error:null
     });
-    // this.openSnackBar("Loading Skills ....");
     
 
     this.httpClient.get<Skill[]>('../../assets/skills.json').pipe(
@@ -76,7 +75,6 @@ export class SkillService {
               error:null
             }
           )
-          // this.openSnackBar("Skills Loaded !");
     
         },
         error : (error)=>{
@@ -87,7 +85,6 @@ export class SkillService {
               error:"Couldn't load skills!"
             }
           )
-          // this.openSnackBar("Couldn't Load Skills !");
         }
       }
     )
@@ -104,5 +101,28 @@ export class SkillService {
   //     panelClass:'mat-primary'
   //   })
   // }
+
+  private cachedSkills:Skill[]=[];
+
+  get areSkillsCached()
+  {
+    return this.cachedSkills;
+  }
+
+  public getSkillsForResolver()
+  {
+    return  this.httpClient.get<Skill[]>('../../assets/skills.json').pipe(
+      delay(1000),
+      retry({
+        count:2,delay:1000
+      }),
+      tap({
+        next:(skills)=>{
+          //for cache!
+          this.cachedSkills=skills;
+        }
+      })
+    );
+  }
 
 }

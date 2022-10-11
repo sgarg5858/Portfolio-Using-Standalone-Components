@@ -1,4 +1,4 @@
-<ng-container *ngIf="(skillService.loading$ | async);else showSkills">
+<!-- <ng-container *ngIf="(skillService.loading$ | async);else showSkills">
     <h1>Loading Skills.....</h1>
 </ng-container>
 
@@ -33,4 +33,17 @@
         <h1>Couldn't load skills :(</h1>
     </ng-template>
 
-</ng-template>
+</ng-template> -->
+
+<div class="container">
+            
+    <h1 class="heading skill-heading-animate">Tech stack I've worked with,</h1>
+    <div class="skills">
+
+         <app-skill *ngFor="let skill of skills;let i=index" 
+         [skill]="skill"
+         [class]="i | cssClass : 'skill-animate-' "
+         >
+         </app-skill>
+    </div>
+ </div>
