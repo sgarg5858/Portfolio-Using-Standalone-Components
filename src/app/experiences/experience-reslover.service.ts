@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { catchError, delay, Observable, of } from 'rxjs';
+import { catchError, delay, EMPTY, Observable, of } from 'rxjs';
 import { Employer, ExperienceService } from './experience.service';
 
 @Injectable({
@@ -11,7 +11,6 @@ export class ExperienceResloverService implements Resolve<Employer[] |null> {
 
   constructor(
     private experienceService:ExperienceService,
-    private router:Router,
     private snackbar:MatSnackBar
     ) { }
 
@@ -34,8 +33,7 @@ export class ExperienceResloverService implements Resolve<Employer[] |null> {
             duration:3000
           })
 
-          this.router.navigate(['home']);
-          return of(null);
+          return EMPTY;
         })
       )
     }

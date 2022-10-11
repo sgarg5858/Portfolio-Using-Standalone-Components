@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
-import { catchError, delay, filter, map, merge, Observable, of, retry, skip, take, tap, throwError } from 'rxjs';
+import { catchError, delay, EMPTY, filter, map, merge, Observable, of, retry, skip, take, tap, throwError } from 'rxjs';
 import { Skill, SkillService } from './skill.service';
 
 @Injectable()
@@ -10,7 +10,6 @@ export class SkillsResloverService implements Resolve<any> {
 
   constructor
   (private skillService:SkillService,
-    private router:Router,
     private _snackbar:MatSnackBar
     ) { }
 
@@ -32,8 +31,8 @@ export class SkillsResloverService implements Resolve<any> {
             panelClass:'mySnackbar',
             duration:3000
           })
-          this.router.navigate(['home']);
-          return of(null);
+          // this.router.navigate(['home']);
+          return EMPTY;
         })
       )
     }
