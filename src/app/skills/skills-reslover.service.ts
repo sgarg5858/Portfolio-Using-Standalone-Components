@@ -27,7 +27,7 @@ export class SkillsResloverService implements Resolve<any> {
       return this.skillService.getSkillsForResolver().pipe(
         catchError((err)=>{
           this._snackbar.open("Couldn't load skills",undefined,{
-            horizontalPosition:'center',
+            horizontalPosition:'right',
             verticalPosition:'bottom',
             panelClass:'mySnackbar',
             duration:3000

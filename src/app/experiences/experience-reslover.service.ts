@@ -28,7 +28,7 @@ export class ExperienceResloverService implements Resolve<Employer[] |null> {
         catchError((err)=>{
 
           this.snackbar.open("Couldn't load Experiences",undefined,{
-            horizontalPosition:'center',
+            horizontalPosition:'right',
             verticalPosition:'bottom',
             panelClass:'mySnackbar',
             duration:3000
