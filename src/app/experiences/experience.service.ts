@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, delay, distinctUntilChanged, map, retry, tap } from 'rxjs';
+import { Employer } from './employer';
 
 
 export interface Project{
@@ -10,14 +11,7 @@ export interface Project{
   skills:string[]
 
 }
-export interface Employer{
-  name:string;
-  title:string;
-  startDate:string;
-  endDate:string;
-  present:boolean;
-  work:string;
-}
+
 
 export interface EmployerState{
   employers:Employer[]|null;
@@ -102,28 +96,5 @@ export class ExperienceService {
 
   }
 
-  private cachedEmployer:Employer[]=[];
-
-  get areEmployersCached()
-  {
-    return this.cachedEmployer;
-  }
-
-
-  getEmployersForResolver()
-  {
-    return this.httpClient.get<Employer[]>('../../assets/employers.json').pipe(
-      delay(1000),
-      retry({
-        count:2,
-        delay:1000
-      }),
-      tap({
-        next:(employers)=>{
-          //for cache!
-          this.cachedEmployer=employers;
-        }
-      })
-    )
-  }
+ 
 }

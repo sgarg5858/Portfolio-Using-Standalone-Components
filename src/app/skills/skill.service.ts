@@ -1,12 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, delay, distinctUntilChanged, map, mergeMap, of, retry, skip, tap } from 'rxjs';
+import { Skill } from './skill';
 
 
-export interface Skill{
-  name:string;
-  experienceInYears:number;
-}
 
 export interface SkillState{
   loading:boolean|null;
