@@ -26,7 +26,7 @@ export const routes: Routes = [
     },
     {
         path:'experience',
-        loadComponent:()=>import('../experiences/experiences/experiences.component').then(c=>c.ExperiencesComponent),
+        loadComponent:()=>import('../experiences/new-experiences/new-experiences.component').then(c=>c.NewExperiencesComponent),
         providers:[
             ExperienceService,
             ExperienceResloverService,

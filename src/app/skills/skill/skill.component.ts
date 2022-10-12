@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Skill } from '../skill.service';
 import {MatCardModule} from '@angular/material/card'
+import { Skill } from '../skill';
 @Component({
   selector: 'app-skill',
   standalone: true,

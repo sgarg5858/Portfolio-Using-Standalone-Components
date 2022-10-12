@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, retry, tap } from 'rxjs';
-import { Skill } from './skill.service';
+import { Skill } from './skill';
 
 @Injectable({
   providedIn: 'root'

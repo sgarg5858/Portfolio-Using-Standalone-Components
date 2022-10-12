@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { catchError, delay, EMPTY, Observable, of } from 'rxjs';
-import { Employer, ExperienceService } from './experience.service';
+import { Employer } from './employer';
+import { NewExperienceService } from './new-experience.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Employer, ExperienceService } from './experience.service';
 export class ExperienceResloverService implements Resolve<Employer[] |null> {
 
   constructor(
-    private experienceService:ExperienceService,
+    private experienceService:NewExperienceService,
     private snackbar:MatSnackBar
     ) { }
 

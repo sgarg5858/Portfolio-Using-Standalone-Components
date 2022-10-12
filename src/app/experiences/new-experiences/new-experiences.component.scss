@@ -1,0 +1,91 @@
+@use './../../../styles/helpers/mixins' as mixins;
+h1{
+    font-size: 28px;
+    font-weight: 400;
+    display: block;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 5vh;
+    
+}
+.experience-heading-animate{
+    animation: heading-animate 1s ease-in-out ;
+}
+@keyframes heading-animate {
+    0%{
+        opacity: 0;
+        transform: translateX(calc( -1 * var(--animation-distance)));
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.employers{
+    @include mixins.flexbox(column,flex-start,center,nowrap);
+    margin-top: 20px;
+    min-height: calc(100vh - 80px);
+    padding-bottom: 20px;
+    .employer{
+        width: 700px;
+        height: auto;
+        margin: 20px;
+    }
+}
+
+
+
+@media screen and (min-width:600px) and (max-width:700px) {
+    .employers{
+        .employer{
+            width: 550px ;
+        }
+    }
+    
+}
+@media screen and (min-width:500px) and (max-width:600px) {
+    .employers{
+        .employer{
+            width: 450px ;
+        }
+    }
+   
+}
+@media screen and (min-width:400px) and (max-width:500px) {
+    .employers{
+        .employer{
+            width: 370px ;
+        }
+    }
+   
+}
+@media screen and (min-width:300px) and (max-width:400px) {
+    .employers{
+        .employer{
+            width: 300px ;
+        }
+    }
+   
+}
+
+.experience-animate-0{
+    animation: experience-animate 1.5s ease-in-out;
+}
+.experience-animate-1{
+    animation: experience-animate 2s ease-in-out;
+}
+
+@keyframes experience-animate {
+    0%{
+        opacity: 0;
+        transform: translateY(var(--animation-distance));
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+

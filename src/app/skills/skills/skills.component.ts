@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Skill, SkillService } from '../skill.service';
+import {  SkillService } from '../skill.service';
 import { SkillComponent } from '../skill/skill.component';
 import { CssClassPipe } from 'src/app/shared/css-class.pipe';
 import {MatSnackBarModule} from '@angular/material/snack-bar'
+import { Skill } from '../skill';
 @Component({
   selector: 'app-skills',
   standalone: true,
