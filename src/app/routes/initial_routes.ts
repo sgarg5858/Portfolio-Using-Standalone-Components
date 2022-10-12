@@ -15,7 +15,7 @@ export const routes: Routes = [
     },
     {
         path:'skills',
-        loadComponent:()=>import('../skills/skills/skills.component').then(c=>c.SkillsComponent),
+        loadComponent:()=>import('../skills/new-skills/new-skills.component').then(c=>c.NewSkillsComponent),
         providers:[
             SkillService,
             SkillsResloverService,

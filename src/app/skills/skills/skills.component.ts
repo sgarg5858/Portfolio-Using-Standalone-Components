@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Skill, SkillService } from '../skill.service';
 import { SkillComponent } from '../skill/skill.component';
 import { CssClassPipe } from 'src/app/shared/css-class.pipe';
-import { ActivatedRoute } from '@angular/router';
 import {MatSnackBarModule} from '@angular/material/snack-bar'
 @Component({
   selector: 'app-skills',
@@ -14,14 +13,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar'
 })
 export class SkillsComponent implements OnInit {
 
-  constructor(public activatedRoute:ActivatedRoute) { }
+  constructor(public skillService:SkillService) { }
   skills:Skill[]=[];
   ngOnInit(): void {
-    this.skills=this.activatedRoute.snapshot.data['skills'];
-    // this.skillService.getSkills();
+    this.skillService.getSkills();
   }
-  // getAnimationClass(index:number)
-  // {
-  //   return `skill-animate-${index}`;
-  // }
 }

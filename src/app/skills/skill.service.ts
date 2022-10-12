@@ -39,9 +39,6 @@ export class SkillService {
     distinctUntilChanged(),
   );
 
-
-
-
   checkIfSkillsAlreadyLoaded()
   {
     const skills=this.skillsBehaviorSubject.value.skills;
@@ -89,40 +86,4 @@ export class SkillService {
       }
     )
   }
-
-    // openSnackBar(message:string)
-  // {
-  //   this._snackbar.dismiss();
-  //   this._snackbar.openFromComponent(SnackbarComponent,{
-  //     data:message,
-  //     duration:3000,
-  //     horizontalPosition:"left",
-  //     verticalPosition:"bottom",
-  //     panelClass:'mat-primary'
-  //   })
-  // }
-
-  private cachedSkills:Skill[]=[];
-
-  get areSkillsCached()
-  {
-    return this.cachedSkills;
-  }
-
-  public getSkillsForResolver()
-  {
-    return  this.httpClient.get<Skill[]>('../../assets/skills.json').pipe(
-      delay(1000),
-      retry({
-        count:2,delay:1000
-      }),
-      tap({
-        next:(skills)=>{
-          //for cache!
-          this.cachedSkills=skills;
-        }
-      })
-    );
-  }
-
 }

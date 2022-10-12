@@ -1,0 +1,163 @@
+@use './../../../styles/helpers/mixins' as mixins;
+h1{
+    font-size: 28px;
+    font-weight: 400;
+    display: block;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 5vh;
+}
+
+.skill-heading-animate{
+    animation: heading-animate 0.7s ease-in-out ;
+}
+@keyframes heading-animate {
+    0%{
+        opacity: 0;
+        transform: translateX(calc(-1 * var(--animation-distance)));
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+.container{
+    @include mixins.flexbox(column,flex-start,center,nowrap);
+    min-height: calc(100vh - 80px);
+    height: auto;
+    padding-bottom: 20px;
+}
+.skills{
+    width: 90%;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
+
+    grid-gap:15px;
+
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    
+
+}
+@media screen and (min-width:800px) and (max-width:1100px) {
+    .skills{
+        display: grid;
+        grid-template-rows: repeat(3,1fr);
+        grid-template-columns: repeat(4,1fr);
+        grid-gap:15px;
+    
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+    
+    }
+}
+
+@media screen and (min-width:650px) and (max-width:800px) {
+    .skills{
+        display: grid;
+        grid-template-rows: repeat(3,1fr);
+        grid-template-columns: repeat(4,1fr);
+    
+       
+        grid-gap:15px;
+    
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+
+    
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:650px) {
+    .skills{
+        display: grid;
+        grid-template-rows: repeat(4,1fr);
+        grid-template-columns: repeat(3,1fr);
+    
+      
+        grid-gap:15px;
+    
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+    }
+}
+
+@media screen and (min-width:300px) and (max-width:500px) {
+
+    .skills{
+        display: grid;
+        grid-template-rows: repeat(6,1fr);
+        grid-template-columns: repeat(2,1fr);
+    
+        grid-gap:15px;
+    
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+
+    }
+}
+.skill-animate-0{
+    animation: skill-animate 1s ease-in-out;
+}
+.skill-animate-1{
+    animation: skill-animate 1.1s ease-in-out;
+}
+.skill-animate-2{
+    animation: skill-animate 1.2s ease-in-out;
+}
+.skill-animate-3{
+    animation: skill-animate 1.3s ease-in-out ;
+}
+.skill-animate-4{
+    animation: skill-animate 1.4s ease-in-out;
+}
+.skill-animate-5{
+    animation: skill-animate 1.5s ease-in-out;
+}
+.skill-animate-6{
+    animation: skill-animate 1.6s ease-in-out;
+}
+.skill-animate-7{
+    animation: skill-animate 1.7s ease-in-out;
+}
+.skill-animate-8{
+    animation: skill-animate 1.8s ease-in-out;
+}
+.skill-animate-9{
+    animation: skill-animate 1.9s ease-in-out;
+}
+.skill-animate-10{
+    animation: skill-animate 2.0s ease-in-out;
+}
+.skill-animate-11{
+    animation: skill-animate 2.1s ease-in-out;
+}
+.skill-animate-12{
+    animation: skill-animate 2.2s ease-in-out;
+}
+@keyframes skill-animate {
+    0%{
+        opacity: 0;
+        transform: translateY(var(--animation-distance));
+    }
+    75%{
+        opacity: 0.5;
+        transform: translateY(calc( 4 * var(--animation-distance)) / 5 );
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

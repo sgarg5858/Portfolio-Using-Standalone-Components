@@ -1,0 +1,12 @@
+<div class="container">
+            
+    <h1 class="heading skill-heading-animate">Tech stack I've worked with,</h1>
+    <div class="skills">
+
+         <app-skill *ngFor="let skill of skills;let i=index" 
+         [skill]="skill"
+         [class]="i | cssClass : 'skill-animate-' "
+         >
+         </app-skill>
+    </div>
+ </div>
