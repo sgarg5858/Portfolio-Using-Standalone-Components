@@ -3,7 +3,9 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { Routes } from "@angular/router";
 import { ExperienceResloverService } from "../experiences/experience-reslover.service";
 import { ExperienceService } from "../experiences/experience.service";
+import { NewExperienceService } from "../experiences/new-experience.service";
 import { HomeComponent } from "../home/home/home.component";
+import { NewSkillService } from "../skills/new-skill.service";
 import { SkillService } from "../skills/skill.service";
 import { SkillsResloverService } from "../skills/skills-reslover.service";
 
@@ -17,7 +19,7 @@ export const routes: Routes = [
         path:'skills',
         loadComponent:()=>import('../skills/new-skills/new-skills.component').then(c=>c.NewSkillsComponent),
         providers:[
-            SkillService,
+            NewSkillService,
             SkillsResloverService,
             importProvidersFrom(MatSnackBarModule)
         ],
@@ -28,7 +30,7 @@ export const routes: Routes = [
         path:'experience',
         loadComponent:()=>import('../experiences/new-experiences/new-experiences.component').then(c=>c.NewExperiencesComponent),
         providers:[
-            ExperienceService,
+            NewExperienceService,
             ExperienceResloverService,
             importProvidersFrom(MatSnackBarModule)
         ],

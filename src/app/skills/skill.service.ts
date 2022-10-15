@@ -8,22 +8,19 @@ import { Skill } from './skill';
 export interface SkillState{
   loading:boolean|null;
   skills:Skill[]|null;
-  error:unknown|null;
+  error:string|null;
 }
 
 @Injectable()
 export class SkillService {
 
-  constructor(private httpClient:HttpClient) {
-    
-   }
+  constructor(private httpClient:HttpClient) {}
 
   private skillsBehaviorSubject = new BehaviorSubject<SkillState>({loading:null,skills:null,error:null});
 
   public readonly skills$ = this.skillsBehaviorSubject.asObservable().pipe(
     map((skillState)=>skillState.skills),
     distinctUntilChanged(),
-
   );
 
   public readonly loading$ = this.skillsBehaviorSubject.asObservable().pipe(
@@ -57,6 +54,10 @@ export class SkillService {
 
     this.httpClient.get<Skill[]>('../../assets/skills.json').pipe(
       delay(1000),
+      retry({
+        count:2,
+        delay:1000
+      })
       )
     .subscribe(
       {

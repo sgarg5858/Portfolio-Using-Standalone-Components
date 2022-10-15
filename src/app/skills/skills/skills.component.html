@@ -1,10 +1,11 @@
+<!-- Flow-1 -->
 <ng-container *ngIf="(skillService.loading$ | async);else showSkills">
     <h1>Loading Skills.....</h1>
 </ng-container>
 
 <ng-template #showSkills>
 
-    <ng-container *ngIf="(skillService.skills$|  async) as skills;else showError">
+    <ng-container *ngIf="(skillService.skills$ |  async) as skills;else showError">
 
         <ng-container *ngIf="skills.length > 0; else noSkills">
 
