@@ -1,6 +1,6 @@
 <!-- Flow-1 -->
 <ng-container *ngIf="(skillService.loading$ | async);else showSkills">
-    <h1>Loading Skills.....</h1>
+    <h1 id="loadingSkills">Loading Skills.....</h1>
 </ng-container>
 
 <ng-template #showSkills>
@@ -9,14 +9,14 @@
 
         <ng-container *ngIf="skills.length > 0; else noSkills">
 
-         <div class="container">
+         <div class="container" id="showSkills">
             
             <h1 class="heading skill-heading-animate">Tech stack I've worked with,</h1>
             <div class="skills">
  
                  <app-skill *ngFor="let skill of skills;let i=index" 
                  [skill]="skill"
-                 [class]="i | cssClass : 'skill-animate-' "
+                 [class]="i | cssClass : 'skill-animate-'"
                  >
                  </app-skill>
             </div>
@@ -31,7 +31,7 @@
     </ng-container>
 
     <ng-template #showError>
-        <h1>Couldn't load skills :(</h1>
+        <h1 id="errorSkills">Couldn't load skills :(</h1>
     </ng-template>
 
 </ng-template> 

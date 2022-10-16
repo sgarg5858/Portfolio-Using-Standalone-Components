@@ -15,15 +15,24 @@ export const routes: Routes = [
         component:HomeComponent,
         title:"Sanjay Garg"
     },
+    // {
+    //     path:'skills',
+    //     loadComponent:()=>import('../skills/new-skills/new-skills.component').then(c=>c.NewSkillsComponent),
+    //     providers:[
+    //         NewSkillService,
+    //         SkillsResloverService,
+    //         importProvidersFrom(MatSnackBarModule)
+    //     ],
+    //     resolve:{skills:SkillsResloverService},
+    //     title:"Sanjay Garg-Skills"
+    // },
     {
         path:'skills',
-        loadComponent:()=>import('../skills/new-skills/new-skills.component').then(c=>c.NewSkillsComponent),
+        loadComponent:()=>import('../skills/skills/skills.component').then(c=>c.SkillsComponent),
         providers:[
-            NewSkillService,
-            SkillsResloverService,
+            SkillService,
             importProvidersFrom(MatSnackBarModule)
         ],
-        resolve:{skills:SkillsResloverService},
         title:"Sanjay Garg-Skills"
     },
     {

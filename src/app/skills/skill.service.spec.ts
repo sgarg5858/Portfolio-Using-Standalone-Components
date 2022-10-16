@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import {HttpTestingController,HttpClientTestingModule} from '@angular/common/http/testing'
 import { SkillService } from './skill.service';
-import { mockSkills } from './mock-skills';
+import { mockSkills } from './mocks/mock-skills';
 import { Skill } from './skill';
-import { skip } from 'rxjs';
+import { skip, take } from 'rxjs';
 
-describe('SkillService', () => {
+fdescribe('SkillService', () => {
 
   let service: SkillService;
   let httpClient:HttpClient;
@@ -41,11 +41,20 @@ describe('SkillService', () => {
   //so we should test that these behavior subjects are able to push data
   //and public part of the api also gets data so when used in template
   // with async pipe we are getting the data! and we will also check the error case!
-  fit('should make the api call to get skills',()=>{
+  it('should make the api call to get skills',()=>{
 
     service.skills$.pipe(skip(1))
     .subscribe((skills:Skill[]|null)=>{
       expect(skills).toEqual(mockSkills);
+    })
+    
+    service.loading$.pipe(skip(1),take(1))
+    .subscribe((loading:boolean|null)=>{
+      expect(loading).toBe(true);
+    })
+    service.loading$.pipe(skip(2),take(1))
+    .subscribe((loading:boolean|null)=>{
+      expect(loading).toBe(false);
     })
 
     httpClient.get<Skill[]>('../../assets/skills.json').subscribe(
@@ -53,7 +62,8 @@ describe('SkillService', () => {
         next:(skills:Skill[])=>{
           expect(skills).toEqual(mockSkills);
           expect(skills.length).toBe(12);
-        }
+        },
+        error:fail
       }
     )
     
@@ -72,7 +82,7 @@ describe('SkillService', () => {
   })
 
 
-  fit('should make the api call to get skills, but here url is wrong so api will fail',()=>{
+  it('should make the api call to get skills, but here url is wrong so api will fail',()=>{
 
     const mockError="Couldn't load skills!";
     service.error$.pipe(skip(1))
@@ -82,10 +92,7 @@ describe('SkillService', () => {
 
     httpClient.get<Skill[]>('../../assets/skillss.json').subscribe(
       {
-        next:(skills:Skill[])=>{
-          expect(skills).toEqual(mockSkills);
-          expect(skills.length).toBe(12);
-        },
+        next:fail,
         error:(err)=>{
           console.log(err);
           expect(err.status).toEqual(404);

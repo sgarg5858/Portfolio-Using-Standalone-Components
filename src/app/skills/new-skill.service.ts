@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { delay, retry, tap } from 'rxjs';
 import { Skill } from './skill';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NewSkillService {
 
   constructor(private httpClient:HttpClient) { }

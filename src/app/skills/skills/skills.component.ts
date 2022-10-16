@@ -15,7 +15,9 @@ import { Skill } from '../skill';
 export class SkillsComponent implements OnInit {
 
   constructor(public skillService:SkillService) { }
+
   ngOnInit(): void {
+    
     this.skillService.getSkills();
   }
 }
