@@ -17,7 +17,7 @@ export class SkillsComponent implements OnInit {
   constructor(public skillService:SkillService) { }
 
   ngOnInit(): void {
-    
+    console.log("ngOnInit is called");
     this.skillService.getSkills();
   }
 }

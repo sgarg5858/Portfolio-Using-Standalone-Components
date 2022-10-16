@@ -41,17 +41,20 @@ fdescribe('SkillService', () => {
   //so we should test that these behavior subjects are able to push data
   //and public part of the api also gets data so when used in template
   // with async pipe we are getting the data! and we will also check the error case!
+
+  //Here we tested that the observables send data appropriately!
   it('should make the api call to get skills',()=>{
 
     service.skills$.pipe(skip(1))
     .subscribe((skills:Skill[]|null)=>{
       expect(skills).toEqual(mockSkills);
     })
-    
+
     service.loading$.pipe(skip(1),take(1))
     .subscribe((loading:boolean|null)=>{
       expect(loading).toBe(true);
     })
+
     service.loading$.pipe(skip(2),take(1))
     .subscribe((loading:boolean|null)=>{
       expect(loading).toBe(false);
