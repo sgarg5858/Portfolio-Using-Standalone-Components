@@ -116,7 +116,7 @@ fdescribe('SkillsComponent', () => {
     let skillElement = debugElement.query(By.css('#showSkills'));
     expect(skillElement).toBeNull();
     
-    tick(2000);
+    flush();
     fixture.detectChanges();
 
       loadingElement= fixture.debugElement.query(By.css('#loadingSkills'));

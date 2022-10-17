@@ -3,7 +3,9 @@ import { SkillState } from "../skill.service";
 import { mockSkills } from "./mock-skills";
 
 export class  MockSkillService{
+
     private  skillBehaviorSubject = new BehaviorSubject<SkillState>({loading:null,skills:null,error:null});
+    
     public readonly skills$ = this.skillBehaviorSubject.asObservable().pipe(
         map(skillState=>skillState.skills),
         distinctUntilChanged()
