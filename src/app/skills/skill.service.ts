@@ -52,17 +52,10 @@ export class SkillService {
     });
     
 
-    this.httpClient.get<Skill[]>('../../assets/skills.json').pipe(
-      delay(1000),
-      retry({
-        count:2,
-        delay:1000
-      })
-      )
+    this.httpClient.get<Skill[]>('../../assets/skills.json')
     .subscribe(
       {
         next : (skills)=>{
-          console.log(skills);
           this.skillsBehaviorSubject.next(
             {
               loading:false,

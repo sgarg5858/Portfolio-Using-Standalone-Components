@@ -7,7 +7,7 @@ import { SkillComponent } from './skill.component';
 
 //This tests SkillComponent in a standalone manner!
 
-fdescribe('SkillComponent', () => {
+describe('SkillComponent', () => {
   let component: SkillComponent;
   let fixture: ComponentFixture<SkillComponent>;
 

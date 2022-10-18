@@ -4,15 +4,20 @@ import {HttpTestingController,HttpClientTestingModule} from '@angular/common/htt
 import { SkillService } from './skill.service';
 import { mockSkills } from './mocks/mock-skills';
 import { Skill } from './skill';
-import { skip, take } from 'rxjs';
-
-fdescribe('SkillService', () => {
+import { skip, take, tap } from 'rxjs';
+import { TestScheduler } from 'rxjs/testing';
+describe('SkillService', () => {
 
   let service: SkillService;
   let httpClient:HttpClient;
   let httpTestingController:HttpTestingController;
+  let testScheduler:TestScheduler;
 
   beforeEach(() => {
+
+    testScheduler = new TestScheduler((actual, expected) => {
+      return expect(actual).toEqual(expected);
+    });
 
     TestBed.configureTestingModule({
       imports:[HttpClientTestingModule],
@@ -31,9 +36,6 @@ fdescribe('SkillService', () => {
     httpTestingController.verify();
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 
   //This test suite tests getSkills function
   //which makes the api call to get skills
@@ -43,37 +45,123 @@ fdescribe('SkillService', () => {
   // with async pipe we are getting the data! and we will also check the error case!
 
   //Here we tested that the observables send data appropriately!
-  it('should make the api call to get skills',()=>{
+  // it('should make the api call to get skills',()=>{
 
-    service.skills$.pipe(skip(1))
-    .subscribe((skills:Skill[]|null)=>{
-      expect(skills).toEqual(mockSkills);
+  //   service.skills$.pipe(skip(1))
+  //   .subscribe((skills:Skill[]|null)=>{
+  //     expect(skills).toEqual(mockSkills);
+  //   })
+
+  //   service.loading$.pipe(skip(1),take(1))
+  //   .subscribe((loading:boolean|null)=>{
+  //     expect(loading).toBe(true);
+  //   })
+
+  //   service.loading$.pipe(skip(2),take(1))
+  //   .subscribe((loading:boolean|null)=>{
+  //     expect(loading).toBe(false);
+  //   })
+
+  //   httpClient.get<Skill[]>('../../assets/skills.json').subscribe(
+  //     {
+  //       next:(skills:Skill[])=>{
+  //         expect(skills).toEqual(mockSkills);
+  //         expect(skills.length).toBe(12);
+  //       },
+  //       error:fail
+  //     }
+  //   )
+    
+  //   // The following `expectOne()` will match the request's URL.
+  // // If no requests or multiple requests matched that URL
+  // // `expectOne()` would throw.
+  // const req = httpTestingController.expectOne('../../assets/skills.json');
+
+  //  // Assert that the request is a GET.
+  //  expect(req.request.method).toEqual('GET');
+
+  //  // Respond with mock data, causing Observable to resolve.
+  // // Subscribe callback asserts that correct data was returned.
+  // req.flush(mockSkills);
+
+  // })
+
+
+  // it('should make the api call to get skills, but here url is wrong so api will fail',()=>{
+
+  //   const mockError="Couldn't load skills!";
+  //   service.error$.pipe(skip(1))
+  //   .subscribe((error:string|null)=>{
+  //     expect(error).toBe(mockError);
+  //   })
+
+  //   httpClient.get<Skill[]>('../../assets/skillss.json').subscribe(
+  //     {
+  //       next:fail,
+  //       error:(err)=>{
+  //         console.log(err);
+  //         expect(err.status).toEqual(404);
+  //         expect(err.statusText).toBe("Not Found");
+  //       }
+  //     }
+      
+  //   )
+    
+  //   // The following `expectOne()` will match the request's URL.
+  // // If no requests or multiple requests matched that URL
+  // // `expectOne()` would throw.
+  // const req = httpTestingController.expectOne('../../assets/skillss.json');
+
+  //  // Assert that the request is a GET.
+  //  expect(req.request.method).toEqual('GET');
+
+  //  // Respond with mock data, causing Observable to resolve.
+  // // Subscribe callback asserts that correct data was returned.
+  // req.flush(mockError,{status:404,statusText:"Not Found"});
+
+  // });
+
+  fit('should make the api call to get skills using marble testing',()=>{
+
+
+    
+    const expectedSkillMarbles='a';
+    const expectedSkillValues={
+      a:null,
+      b:mockSkills
+    }
+    const triggerSkillMarbles='a';
+    const triggerSkillValues={
+      a:()=>service.getSkills()
+    }
+
+    testScheduler.run((helpers)=>{
+      const{expectObservable,cold}=helpers;
+      expectObservable(service.skills$.pipe(tap((skills)=>console.log("Test Scheduler Skills",skills)))).toBe(
+        expectedSkillMarbles,
+        expectedSkillValues
+      ),
+      expectObservable(
+        cold(triggerSkillMarbles,triggerSkillValues).pipe(tap((fn)=>{
+          fn();
+        }))
+      )
     })
-
-    service.loading$.pipe(skip(1),take(1))
-    .subscribe((loading:boolean|null)=>{
-      expect(loading).toBe(true);
-    })
-
-    service.loading$.pipe(skip(2),take(1))
-    .subscribe((loading:boolean|null)=>{
-      expect(loading).toBe(false);
-    })
-
-    httpClient.get<Skill[]>('../../assets/skills.json').subscribe(
-      {
-        next:(skills:Skill[])=>{
-          expect(skills).toEqual(mockSkills);
-          expect(skills.length).toBe(12);
-        },
-        error:fail
-      }
-    )
+    // httpClient.get<Skill[]>('../../assets/skills.json').subscribe(
+    //   {
+    //     next:(skills:Skill[])=>{
+    //       expect(skills).toEqual(mockSkills);
+    //       expect(skills.length).toBe(12);
+    //     },
+    //     error:fail
+    //   }
+    // )
     
     // The following `expectOne()` will match the request's URL.
   // If no requests or multiple requests matched that URL
   // `expectOne()` would throw.
   const req = httpTestingController.expectOne('../../assets/skills.json');
+  console.log(req.request.url)
 
    // Assert that the request is a GET.
    expect(req.request.method).toEqual('GET');
@@ -81,41 +169,6 @@ fdescribe('SkillService', () => {
    // Respond with mock data, causing Observable to resolve.
   // Subscribe callback asserts that correct data was returned.
   req.flush(mockSkills);
-
-  })
-
-
-  it('should make the api call to get skills, but here url is wrong so api will fail',()=>{
-
-    const mockError="Couldn't load skills!";
-    service.error$.pipe(skip(1))
-    .subscribe((error:string|null)=>{
-      expect(error).toBe(mockError);
-    })
-
-    httpClient.get<Skill[]>('../../assets/skillss.json').subscribe(
-      {
-        next:fail,
-        error:(err)=>{
-          console.log(err);
-          expect(err.status).toEqual(404);
-          expect(err.statusText).toBe("Not Found");
-        }
-      }
-      
-    )
-    
-    // The following `expectOne()` will match the request's URL.
-  // If no requests or multiple requests matched that URL
-  // `expectOne()` would throw.
-  const req = httpTestingController.expectOne('../../assets/skillss.json');
-
-   // Assert that the request is a GET.
-   expect(req.request.method).toEqual('GET');
-
-   // Respond with mock data, causing Observable to resolve.
-  // Subscribe callback asserts that correct data was returned.
-  req.flush(mockError,{status:404,statusText:"Not Found"});
 
   })
 
